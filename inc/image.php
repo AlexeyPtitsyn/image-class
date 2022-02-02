@@ -2,8 +2,8 @@
 /**
  * Image class.
  *
- * @author Alexey Ptitsyn <numidium.ru@gmail.com>
- * @copyright Alexey Ptitsyn <numidium.ru@gmail.com>
+ * @author Alexey Ptitsyn <alexey.ptitsyn@gmail.com>
+ * @copyright Alexey Ptitsyn <alexey.ptitsyn@gmail.com>
  *
  * Example usage:
  * <?php
@@ -273,6 +273,9 @@ class Image
    * @return {string}
    */
   public function getSrc($useTimestamp = true) {
-    return $this->src . '?t=' . filemtime($this->rootPath . '/' . $this->imagePath);
+    if($useTimestamp) {
+      return $this->src . '?t=' . filemtime($this->rootPath . '/' . $this->imagePath);
+    }
+    return $this->src;
   } // getSrc();
 } // class Image
